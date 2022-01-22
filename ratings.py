@@ -9,7 +9,16 @@ with open("scores.txt", 'r') as inf:
 
 
 new_resturant = input("What resturant name would you like to add? ")
-new_resturant_score = input("What score would you give this resturant? ")
+
+while True:
+    try:
+        new_resturant_score = int(input("O a scale of 1-5, what score would you give this resturant? "))
+        if 1 <= new_resturant_score <= 5:
+            break
+        raise ValueError()
+    except ValueError:
+        print("Your answer must be a number between 1-5")
+            
 
 dicts_from_file[new_resturant] = new_resturant_score
 
